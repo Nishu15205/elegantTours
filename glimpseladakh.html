@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ladakh Tour</title>
+    <link rel="stylesheet" href="common.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+       
+   
+</head>
+<body>
+    <body class="bg-white">
+        <header class="flex items-center justify-between p-4 shadow-md bg-white relative">
+            <img src="logo.png" width="180px">
+            <nav>
+                <ul class="flex text-lg hidden flex-col absolute top-16 left-0 w-full bg-white shadow-md p-4 lg:flex lg:flex-row lg:relative lg:top-0 lg:shadow-none lg:p-0" id="menu">
+                    <li><a href="index.html" class="hover:text-yellow-500">Home</a></li>
+                    <li><a href="Destination.html" class="hover:text-yellow-500">Destinations</a></li>
+                    <li><a href="touridea.html" class="hover:text-yellow-500">Tour Ideas</a></li>
+                    <li><a href="tourpackage.html" class="hover:text-yellow-500">Tour Packages</a></li>
+                    <li><a href="destinationwed.html" class="hover:text-yellow-500">Destination Weddings</a></li>
+                    <li><a href="mice.html" class="hover:text-yellow-500">Mice</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="relative z-50">
+    
+                    <input type="text" id="searchBox" placeholder="Search..." 
+                        class="border border-gray-300 rounded-md p-2 w-40 focus:outline-none focus:ring-2 focus:ring-yellow-500" onkeyup="searchSuggestions()">
+                    <button onclick="performSearch()" class="absolute right-2 top-2 text-gray-500">🔍</button>
+                    <div id="suggestions" class="absolute bg-white border border-gray-300 w-40 mt-1 hidden"></div>
+                </div>
+                
+                <button class="text-yellow-500 text-2xl menu-toggle lg:hidden" onclick="toggleMenu()">☰</button>
+            </div>
+        </header>
+    
+        <script>
+            const touristPlaces = ["Rajasthan", "Himachal Pradesh", "Kerala", "Kashmir", "Uttrakhand", "Ladakh"];
+    
+            function performSearch() {
+                let query = document.getElementById('searchBox').value;
+                if (query && touristPlaces.includes(query)) {
+                    window.location.href = `destination.html?place=${encodeURIComponent(query)}`;
+                } else {
+                    alert('Destination not found. Please select from the suggestions.');
+                }
+            }
+    
+            function toggleMenu() {
+                let menu = document.getElementById("menu");
+                menu.classList.toggle("hidden");
+            }
+    
+            function searchSuggestions() {
+                let query = document.getElementById("searchBox").value.toLowerCase();
+                let suggestionsDiv = document.getElementById("suggestions");
+                suggestionsDiv.innerHTML = "";
+                if (query) {
+                    let filteredPlaces = touristPlaces.filter(place => place.toLowerCase().includes(query));
+                    if (filteredPlaces.length) {
+                        filteredPlaces.forEach(place => {
+                            let div = document.createElement("div");
+                            div.classList.add("p-2", "hover:bg-gray-100", "cursor-pointer");
+                            div.innerText = place;
+                            div.onclick = function() {
+                                document.getElementById("searchBox").value = place;
+                                suggestionsDiv.classList.add("hidden");
+                                performSearch();
+                            };
+                            suggestionsDiv.appendChild(div);
+                        });
+                        suggestionsDiv.classList.remove("hidden");
+                    } else {
+                        suggestionsDiv.classList.add("hidden");
+                    }
+                } else {
+                    suggestionsDiv.classList.add("hidden");
+                }
+            }
+        </script>
+        <style>
+            .hero-section {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url("la1.jpg") no-repeat center center/cover ;
+}
+        </style>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        
+        <div class="hero-overlay" >
+            
+            <h1 class="hero-title">Best of Ladakh Tour</h1>
+            
+        </div>
+    </div>
+    
+    <!-- Main Section -->
+    <div class="main-section">
+        <!-- Content Section -->
+        <div class="content-section">
+            <h2 class="content-title">Overview</h2>
+            <p class="content-text">Best of Ladakh Tour – Nestled in the lap of the Himalayas and Karakoram mountain ranges, you will experience the most adventurous and soul-stirring journey to Ladakh. From the natural landscape to its traditional culture: monasteries and stupas, Ladakh has a lot to offer you. Take a trip to Ladakh and have an experience most crave for.</p>   <h3 class="itinerary-title">Itinerary</h3>
+            <ul class="itinerary-list">
+               <li><b> Day 01: Arrival in Leh</b></li>
+
+                On arrival at Leh airport meet our representative who will transfer you to your hotel in Leh. Upon arrival, proceed for check-in at your hotel. Remainder of the day will be for rest, to acclimatize.
+                <br>
+                Since you are reaching an altitude of 4000 mtrs approximately from 200 mtrs in just one hour’s time, you may be excited and would want to explore everything on your very first day. However, it is your body which needs to get acclimatized to such height and climate. We sincerely suggest that you rest on the first day for body acclimatization. Dinner and overnight stay at the hotel.
+               <li><b> Day 02: Leh</b></li>
+                
+                In the morning, after breakfast, drive to Sangam (Confluence). En route visit Magnetic Hill and Gurudwara Patthar Sahib. Visit Confluence of Zanskar and Indus River.
+                <br>
+                The Sangam (Confluence): Confluence of the Indus and Zanskar Rivers lies in Ladakh at Nimu. The Indus runs through Ladakh all along by your side serving as a constant companion and you feel a sense of respect for this ifeline of the people of Ladakh, especially since Ladakh experiences rainfall of only 2 to 3 inches throughout the year. Both Indus and Zanskar Rivers merge with each other as if they had flown all along just for that purpose. From this point on, beyond this Confluence of the two, the waters are regarded as the Indus River.
+                <br>
+                Magnetic Hill: Can anyone ever imagine the movement of a vehicle up a steep mountain with its engines off? Reach Magnetic Hill to experience this phenomenon which sounds unbelievable.
+                <br>
+                Gurudwara Pathhar Sahib: Gurudwara Pathar Sahib is a beautiful Gurudwara constructed in the memory of Guru Nanak, about 25 miles away from Leh, on the Leh-Kargil road, 12000 ft above sea level. The Gurudwara was built in 1517 to commemorate the visit to the Ladakh region of Guru Nanak Dev, the founder Guru of the Sikh faith. On your way back, visit Ladakh Hall of fame.
+                <br>
+                Hall of Fame: Hall of Fame in Leh is a must visit for every individual of India. This is constructed by the Indian Army. You will find memorabilia, eminent defence personalities’ biographies, images and weapons used during Kargil war and belongings of enemy soldiers found at war site.
+                <li><b>Day 03: Leh to Nubra Valley Via Khardungla Pass: 140Km / 5 -6 Hours</b></li>
+                
+                Early morning proceed to Nubra Valley via the World’s Highest Motorable road (5602 Mts) Khardung la pass. Khardung la Pass (18,380ft above sea level): It is not very often that one gets to drive on a road at an altitude of 18,380 feet. That is where Khardung la Pass, meaning the ‘Pass of Lower Castle,’ is located on the way from Leh to the Nubra Valley in Ladakh. It is the highest motorable road in the world as signs put up by the Border Roads Organization proudly proclaim.
+                <br>
+                Arrive Nubra Valley and proceed for a visit to the White Sand Dunes at Hunder. You can also enjoy a camel ride here (Camel ride on direct payment basis). Nubra Valley: Popularly called the orchard of Ladakh, Nubra valley offers a graceful view of yellow and pink wild roses in summer and a carpet of wild lavender in the post-monsoon season. You will definitely be overwhelmed to see the Bactrian Camels (Shaggy double hump Camel) around sand dunes. Thereafter, check in at comfortable Camp or Hotel.Evening at leisure. Dinner overnight stay at the camp or hotel.
+                
+                 
+                <li><b>Day 04: Nubra Valley to Pangong Via Shayok/Warila: 150 Km / 5 -6 Hours</b></li>
+                
+                Morning after Breakfast proceed for Diskit Monastery. Post the Diskit Monastery, proceed for backward journey to Pangong via Shayok/Warila.
+                <br>
+                Pangong Lake: The picturesque lake is one of the major draws of the Leh-Ladakh valley. a location of several film shootings and known for its pristine waters surrounded by awe-inspiring mountains, Pangong Lake is a prime tourist attraction. The long and narrow lake lies in the neighbourhood of the famous Chushul Mountains. The mirror-calm water is cold, clear and extremely salty. The lake is a breeding ground for a variety of birds. In the evening check in to your camps at Pangong Lake. Dinner and overnight stay at the camps.
+                <li><b>Day 05: Pangong Lake to Leh (Approx. 140kms)</b></li>
+                
+                In the morning have breakfast at your camps in Pangong. Thereafter, proceed for your journey back to Leh. Upon your arrival in Leh, you may enjoy the evening at leisure. Dinner and overnight stay at the hotel.
+                <br>Dinner and overnight stay at the hotel.
+                <li><b>Day 06: Leh</b></li>
+                
+                Today morning is free for leisure. After Lunch visit Leh Palace, Shanti Stupa & Local Market.
+                <br>
+                Shanti Stupa (Japanese Peace Pagoda): Shanti Stupa/Japanese peace pagoda is built by a Japanese religious organization headed by Head monk Nakamura with the help from the organization and local people. It is situated at a hill top in Cahngspa village providing a bird eye view of the Leh town and the surrounding mountain peaks. Architecturally it has the Japanese touch with small clean rooms on the side for meditators and the main Japanese shrine at the entrance.
+                <br>
+                Leh Palace: The Namgyal Tsemo (victory Peak) was built by King Tashi Namgyal after the reunification of upper and lower Ladakh and victory over Hor and their bodies are placed under an image of Mahakala, the guardian deities to stop further invasion of Hor. The Leh palace known as ‘Lechen Palkhar’ was built by Singay Namgyal around in the beginning of 17th Century A.D. The nine-storied palace is now deserted, and the ASI (Archeological Survey of India) has taken up the renovation work.
+                <li><b>Day 07: Leh Departure</b></li>
+                
+                Leave on time for Leh airport to board your flight for journey to your own destination. </ul>
+            
+            <h3 class="route-map-title">Route Map</h3>
+            <div class="route-map-container">
+                <iframe class="route-map-iframe"  src="https://www.google.com/maps/embed?pb=!1m46!1m12!1m3!1d1687927.8913139475!2d76.00064914990158!3d34.28083051467891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m31!3e0!4m5!1s0x38fde49dd9afc71f%3A0xbce16c0728aad4a4!2sWari%20La!3m2!1d34.1066079!2d77.83392099999999!4m5!1s0x39002d69b6082a97%3A0xb7ba17e3c8c016a9!2sPangong%20Lake!3m2!1d33.7595131!2d78.66744039999999!4m5!1s0x38e2e8a8cade284b%3A0x58bc51a1a2d7398e!2sKarche%20Khar%2C%20194301!3m2!1d34.2258758!2d76.00275429999999!4m5!1s0x38fc367354176591%3A0x8bc4556bab23cae9!2sNubra%20Valley!3m2!1d34.686314599999996!2d77.56728799999999!4m5!1s0x38fdeb6e7e78bc0f%3A0xfae7ff3b4a37ba32!2sTehsildar%20office%2C%205H6Q%2BPPG%2C%20Leh%2C%20194101!3m2!1d34.1618145!2d77.5893377!5e0!3m2!1sen!2sin!4v1742027849933!5m2!1sen!2sin" ></iframe> </div>
+            
+            <h3 class="inclusion-title">Inclusions</h3>
+            <ul class="inclusion-list">
+                <li><img class="inclusion-icon" src="https://cdn-icons-png.flaticon.com/128/681/681494.png" alt="Hotel"> Accommodation</li>
+                <li><img class="inclusion-icon" src="https://cdn-icons-png.flaticon.com/128/684/684908.png" alt="Meals"> Meals</li>
+                <li><img class="inclusion-icon" src="https://cdn-icons-png.flaticon.com/128/2011/2011763.png" alt="Transport"> Transport</li>
+                <li><img class="inclusion-icon" src="https://cdn-icons-png.flaticon.com/128/1046/1046857.png" alt="Guide"> Tour Guide</li>
+            </ul>
+        </div>
+    
+        <!-- Form Section -->
+        <div class="form-section">
+            <iframe class="form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScEz2ld-EfPtquFiQQlkSGeJ1ObXckNGkUwFzNtYUZiSWJHvw/viewform?embedded=true" width="100%" height="500px" frameborder="0">Loading…</iframe>
+            <button class="request-quote-btn">Request a Quote</button>
+            <br>
+            <br>
+            <br>
+            <div class="more-packages">
+                <h1 class="more-packages-title" style="font-size: larger;"><b>More Package Tours</b></h1>
+                <ul class="package-list">
+                    <br>
+                    <li><a href="#"><img src="la1.jpg">Best Of Ladakh Tour</a></li>
+                    <li><a href="#"><img src="la2.webp">Lake Tour Ladakh</a></li>
+                    <li><a href="#"><img src="la3.webp">Honeymoon Tour Ladakh</a></li>
+                    <li><a href="#"><img src="la4.jpg">Glimpses of Ladakh tour</a></li>
+                    <li><a href="#"><img src="la5.jpg">Motorbike Safari Ladakh</a></li>
+                    <li><a href="#"><img src="la6.jpg">Chadar Trekking Tour</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- More Packages Section -->
+    
+
+    <!-- Image Collage Section -->
+    <div class="image-collage-section">
+        <h2 class="collage-title">Memorable Moments</h2>
+        <div class="collage-grid" style="height: 200px;">
+            <img class="collage-image" src="la1.jpg" alt="Fort" style="height: 200px;">
+            <img class="collage-image" src="la2.webp" alt="Desert" style="height: 200px;">
+            <img class="collage-image" src="la3.webp" alt="Palace" style="height: 200px;">
+        </div>
+    </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Floating button container */
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+        }
+    
+        /* Floating button styles */
+        .fab {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            text-decoration: none;
+            font-size: 26px;
+            color: white;
+        }
+    
+        /* Button colors */
+        .whatsapp {
+            background-color: #25D366;
+        }
+    
+        .call {
+            background-color: #34B7F1;
+        }
+    
+        .close-btn {
+            background-color: #8E44AD;
+        }
+    
+        /* Hover effect */
+        .fab:hover {
+            transform: scale(1.1);
+        }
+    
+        /* Show Button (Hidden Initially) */
+        .show-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: #f39c12;
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease-in-out;
+        }
+    
+        .show-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    </head>
+    <body>
+    
+    <!-- Floating Buttons -->
+    <div class="fab-container" id="fabContainer">
+    <a href="https://wa.me/8076998046" target="_blank" class="fab whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <a href="tel:918076998046" class="fab call">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    
+    <div class="fab close-btn" onclick="toggleFAB()">
+        <i class="fa-solid fa-times"></i>
+    </div>
+    </div>
+    
+    <!-- Show Button (Initially Hidden) -->
+    <div class="show-btn" id="showButton" onclick="toggleFAB()">
+    <i class="fa-solid fa-bars"></i>
+    </div>
+    
+    <script>
+    function toggleFAB() {
+        const fabContainer = document.getElementById('fabContainer');
+        const showButton = document.getElementById('showButton');
+    
+        if (fabContainer.style.display === 'none') {
+            fabContainer.style.display = 'flex';
+            showButton.style.display = 'none'; // Hide the show button
+        } else {
+            fabContainer.style.display = 'none';
+            showButton.style.display = 'flex'; // Show the button to bring back FABs
+        }
+    }
+    </script>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+        }
+        .footer {
+            background: #111;
+            color: white;
+            padding: 40px 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            width: 23%;
+            min-width: 250px;
+        }
+        h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        footer p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #bbb;
+        }
+        .footer-column .contact-info {
+            margin-top: 10px;
+        }
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            color: yellow;
+        }
+        .latest-posts {
+            display: flex;
+            flex-direction: column;
+        }
+        .latest-posts a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            margin-top: 8px;
+            display: block;
+        }
+        .latest-posts span {
+            font-size: 12px;
+            color: yellow;
+        }
+        .latest-tweets {
+            color: #888;
+            font-size: 14px;
+        }
+        .footer-column:last-child {
+            text-align: center;
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+            
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Floating button container */
+    .fab-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Floating button styles */
+    .fab {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        text-decoration: none;
+        font-size: 26px;
+        color: white;
+    }
+
+    /* Button colors */
+    .whatsapp {
+        background-color: #25D366;
+    }
+
+    .call {
+        background-color: #34B7F1;
+    }
+
+    .close-btn {
+        background-color: #8E44AD;
+    }
+
+    /* Hover effect */
+    .fab:hover {
+        transform: scale(1.1);
+    }
+
+    /* Show Button (Hidden Initially) */
+    .show-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background-color: #f39c12;
+        display: none; /* Hidden by default */
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .show-btn:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+<body>
+
+<!-- Floating Buttons -->
+<div class="fab-container" id="fabContainer">
+<a href="https://wa.me/8076998046" target="_blank" class="fab whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a href="tel:918076998046" class="fab call">
+    <i class="fa-solid fa-phone"></i>
+</a>
+
+<div class="fab close-btn" onclick="toggleFAB()">
+    <i class="fa-solid fa-times"></i>
+</div>
+</div>
+
+<!-- Show Button (Initially Hidden) -->
+<div class="show-btn" id="showButton" onclick="toggleFAB()">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+<script>
+function toggleFAB() {
+    const fabContainer = document.getElementById('fabContainer');
+    const showButton = document.getElementById('showButton');
+
+    if (fabContainer.style.display === 'none') {
+        fabContainer.style.display = 'flex';
+        showButton.style.display = 'none'; // Hide the show button
+    } else {
+        fabContainer.style.display = 'none';
+        showButton.style.display = 'flex'; // Show the button to bring back FABs
+    }
+}
+</script>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-column">
+            <h2>About Us</h2>
+            <p>
+
+                GH 14/382, First Floor, Paschim Vihar
+                New Delhi – 110085
+                </p>
+            <div class="contact-info">
+                <div><i>📞</i> 91 8076120531</div>
+                <div><i>📍</i> GH 14/382, First Floor, Paschim Vihar</div>
+    
+            </div>
+        </div>
+        
+        <div class="footer-column">
+            <h2>Latest Posts</h2>
+            <div class="latest-posts">
+                <span>August 30</span>
+                <a href="#">How To Take Better Photos?</a>
+                <span>August 30</span>
+                <a href="#"> Things To See And Do When Visiting Adventure Tours</a>
+                <span>August 30</span>
+                <a href="#">Backpacking Laos: A Full Travel Guide for You</a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h2>Latest Tweets</h2>
+            <p class="latest-tweets">Couldn't connect with Twitter</p>
+        </div>
+
+        <div class="footer-column">
+            <h2><a href="https://www.facebook.com/people/Elegant-Tours-India/pfbid02MHPAxtLGNWsLQygkSQoCEDQzMnHJu2gWEubgW1aLoiAQQb58j4XUovD8tyu7RLTHl/"></a>Facebook</h2>
+    
+        </div>
+    </div>
+</footer>
+</body>
+</html>
