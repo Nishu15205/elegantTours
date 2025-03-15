@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Header</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media (min-width: 1025px) and (max-width: 1280px) {
+            nav ul {
+                gap: 15px;
+                font-size: 1rem;
+            }
+        }
+        @media (min-width: 1281px) and (max-width: 1440px) {
+            nav ul {
+                gap: 20px;
+                font-size: 1.1rem;
+            }
+        }
+        @media (min-width: 1441px) {
+            nav ul {
+                gap: 30px;
+                font-size: 1.2rem;
+            }
+        }
+        header {
+    position: relative;
+    z-index: 50;
+    }
+    #suggestions {
+    z-index: 100;
+    position: absolute;
+}
+
+
+    </style>
+
+<body class="bg-white">
+    <header class="flex items-center justify-between p-4 shadow-md bg-white relative">
+        <img src="logo.png" width="180px">
+        <nav>
+            <ul class="flex text-lg hidden flex-col absolute top-16 left-0 w-full bg-white shadow-md p-4 lg:flex lg:flex-row lg:relative lg:top-0 lg:shadow-none lg:p-0" id="menu">
+                <li><a href="index.html" class="hover:text-yellow-500">Home</a></li>
+                <li><a href="Destination.html" class="hover:text-yellow-500">Destinations</a></li>
+                <li><a href="touridea.html" class="hover:text-yellow-500">Tour Ideas</a></li>
+                <li><a href="tourpackage.html" class="hover:text-yellow-500">Tour Packages</a></li>
+                <li><a href="destinationwed.html" class="hover:text-yellow-500">Destination Weddings</a></li>
+                <li><a href="mice.html" class="hover:text-yellow-500">Mice</a></li>
+                
+            </ul>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <div class="relative z-50">
+
+                <input type="text" id="searchBox" placeholder="Search..." 
+                    class="border border-gray-300 rounded-md p-2 w-40 focus:outline-none focus:ring-2 focus:ring-yellow-500" onkeyup="searchSuggestions()">
+                <button onclick="performSearch()" class="absolute right-2 top-2 text-gray-500">🔍</button>
+                <div id="suggestions" class="absolute bg-white border border-gray-300 w-40 mt-1 hidden"></div>
+            </div>
+            
+            <button class="text-yellow-500 text-2xl menu-toggle lg:hidden" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <script>
+        const touristPlaces = ["Rajasthan", "Himachal Pradesh", "Kerala", "Kashmir", "Uttrakhand", "Ladakh"];
+
+        function performSearch() {
+            let query = document.getElementById('searchBox').value;
+            if (query && touristPlaces.includes(query)) {
+                window.location.href = `Destination.html?place=${encodeURIComponent(query)}`;
+            } else {
+                alert('Destination not found. Please select from the suggestions.');
+            }
+        }
+
+        function toggleMenu() {
+            let menu = document.getElementById("menu");
+            menu.classList.toggle("hidden");
+        }
+
+        function searchSuggestions() {
+            let query = document.getElementById("searchBox").value.toLowerCase();
+            let suggestionsDiv = document.getElementById("suggestions");
+            suggestionsDiv.innerHTML = "";
+            if (query) {
+                let filteredPlaces = touristPlaces.filter(place => place.toLowerCase().includes(query));
+                if (filteredPlaces.length) {
+                    filteredPlaces.forEach(place => {
+                        let div = document.createElement("div");
+                        div.classList.add("p-2", "hover:bg-gray-100", "cursor-pointer");
+                        div.innerText = place;
+                        div.onclick = function() {
+                            document.getElementById("searchBox").value = place;
+                            suggestionsDiv.classList.add("hidden");
+                            performSearch();
+                        };
+                        suggestionsDiv.appendChild(div);
+                    });
+                    suggestionsDiv.classList.remove("hidden");
+                } else {
+                    suggestionsDiv.classList.add("hidden");
+                }
+            } else {
+                suggestionsDiv.classList.add("hidden");
+            }
+        }
+    </script>
+    
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: Arial, sans-serif;
+            }
+    
+            .slider-container {
+                position: relative;
+                width: 100%;
+                max-width: 100vw;
+                overflow: hidden;
+            }
+    
+            .slider {
+                display: flex;
+                width: 300%;
+                transition: transform 0.5s ease-in-out;
+            }
+    
+            .slide {
+                width: 100vw;
+                height: 500px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-size: cover;
+                background-position: center;
+            }
+    
+            .text {
+                position: absolute;
+                text-align: center;
+                color: white;
+                font-size: 2rem;
+                font-weight: bold;
+            }
+    
+            .button {
+                display: inline-block;
+                margin-top: 10px;
+                padding: 10px 20px;
+                font-size: 1rem;
+                color: rgb(19, 6, 6);
+                background-color: yellow;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+    
+            .arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: yellow;
+                padding: 10px;
+                cursor: pointer;
+                font-size: 24px;
+                font-weight: bold;
+                border: none;
+            }
+    
+            .prev {
+                left: 10px;
+            }
+    
+            .next {
+                right: 10px;
+            }
+        </style>
+    
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide" style="background-image: url('i1.webp');">
+                <div class="text">
+                    <h1>Explore Golden Triangle Tour</h1>
+                    <p>30% off in August</p>
+                    <a href="Quote.html" class="button">Subscribe</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('hill\ station.jpg');">
+                <div class="text">
+                    <h1>Best Hotels</h1>
+                    <p>Find Your Paradise</p>
+                    <a href="Destination.html" class="button">Explore</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('lake.jpg');">
+                <div class="text">
+                    <h1></h1>
+                    <p>Discover Hidden Gems</p>
+                    <a href="tourpackage.html" class="button">Learn More</a>
+                </div>
+            </div>
+        </div>
+        
+        <button class="arrow prev" onclick="prevSlide()">&#10094;</button>
+        <button class="arrow next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+    
+        function showSlide(i) {
+            const slider = document.querySelector('.slider');
+            index = (i + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(${-index * 100}vw)`;
+        }
+    
+        function nextSlide() {
+            showSlide(index + 1);
+        }
+    
+        function prevSlide() {
+            showSlide(index - 1);
+        }
+    
+        setInterval(nextSlide, 3000); // Auto-slide every 3 seconds
+    </script>
+   
+       <style>
+        
+           .travel-search-container {
+               background: #FFD900;
+               padding: 50px 80px;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               gap: 30px;
+               position: relative;
+           }
+           .travel-search-box {
+               display: flex;
+               align-items: center;
+               gap: 10px;
+               background: transparent;
+               padding: 10px 15px;
+               border-bottom: 2px solid black;
+               width: 300px;
+           }
+           .travel-select, .travel-input {
+               border: none;
+               outline: none;
+               font-size: 18px;
+               background: transparent;
+               flex: 1;
+           }
+           .travel-search-button {
+               background: black;
+               color: white;
+               border: none;
+               padding: 8px 20px;
+               font-size: 14px;
+               cursor: pointer;
+               text-transform: uppercase;
+               font-weight: bold;
+               box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+           }
+           .travel-icon {
+               font-size: 22px;
+           }
+           @media (max-width: 768px) {
+               .travel-search-container {
+                   flex-direction: column;
+                   gap: 15px;
+                   padding: 30px;
+               }
+           }
+       </style>
+   
+       <div class="travel-search-container">
+           <div class="travel-search-box">
+               <span class="travel-icon">🧭</span>
+               <select id="destination" class="travel-select">
+                   <option value="">Where to?</option>
+                   <option value="paris">Rajasthan</option>
+                   <option value="london">Himachal Pradesh</option>
+                   <option value="newyork">Kerala</option>
+                   <option value="tokyo">Kashmir</option>
+                   <option>Uttrakhand</option>
+                   <option>Ladakh</option>
+               </select>
+           </div>
+           
+           <div class="travel-search-box">
+               <span class="travel-icon">📅</span>
+               <input type="date" id="travel-date" class="travel-input" placeholder="mm/dd/yyyy" />
+           </div>
+           
+           <div class="travel-search-box">
+               <span class="travel-icon">📌</span>
+               <select id="travel-type" class="travel-select">
+                   <option value="">Travel Type</option>
+                   <option value="solo">Solo</option>
+                   <option value="family">Family</option>
+                   <option value="adventure">Adventure</option>
+               </select>
+           </div>
+           
+           <a href="Destination.html"><button class="travel-search-button" onclick="searchTrip()">Find Now</button></a>
+       </div>
+   
+       <script>
+           function searchTrip() {
+               let destination = document.getElementById("destination").value;
+               let travelDate = document.getElementById("travel-date").value;
+               let travelType = document.getElementById("travel-type").value;
+               
+               if (!destination || !travelDate || !travelType) {
+                   alert("Please fill all fields");
+                   return;
+               }
+               
+               let queryString = `destination=${destination}&date=${travelDate}&type=${travelType}`;
+               window.location.href = "results.html?" + queryString;
+           }
+       </script>
+       
+       <body class="bg-white">
+       
+           <div class="relative px-10 py-16">
+               <!-- "GO!" text positioned at the top right -->
+               <div class="absolute top-0 right-10 text-yellow-400 text-9xl font-bold">
+                   GO!
+               </div>
+       
+               <div class="border-l-4 border-black pl-4 mt-20">
+                   <h1 class="text-4xl font-bold">
+                       <span class="text-black">Amazing</span> Tours And Fun <br>
+                       Adventures <span class="text-black font-bold">Waiting For</span> You
+                   </h1>
+                   <p class="text-gray-400 mt-4"></p>
+               </div>
+           </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: white;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, auto);
+                gap: 10px;
+                padding: 20px;
+            }
+            .grid-item {
+                position: relative;
+                width: 100%;
+                height: 200px;
+                overflow: hidden;
+                border-radius: 5px;
+                background: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            .grid-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease-in-out;
+            }
+            .grid-item img:hover {
+                transform: scale(1.1);
+            }
+            .featured {
+                border: 2px dashed yellow;
+            }
+            .floating-buttons {
+                position: fixed;
+                top: 50%;
+                right: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .floating-buttons button {
+                padding: 10px 15px;
+                border: none;
+                cursor: pointer;
+                color: white;
+                border-radius: 5px;
+            }
+            .related-btn { background-color: red; }
+            .buy-btn { background-color: black; }
+    
+            /* Responsive Design */
+            @media (max-width: 1024px) {
+                .grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            @media (max-width: 768px) {
+                .grid {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+                .floating-buttons {
+                    top: auto;
+                    bottom: 20px;
+                    right: 10px;
+                }
+                .floating-buttons button {
+                    font-size: 14px;
+                    padding: 8px 12px;
+                }
+            }
+        </style>
+    
+        <div class="grid">
+            <div class="grid-item"><img src="golden.jpg" alt="Travel"></div>
+            <div class="grid-item"><img src="ayurveda.jpg" alt="Travel"></div>
+            <div class="grid-item"><img src="hill station.jpg" alt="Travel"></div>
+            <div class="grid-item"><img src="rishikesh.jpeg" alt="Travel"></div>
+            
+            <div class="grid-item"><img src="img3.jpg" alt="Travel"></div>
+            <div class="grid-item"><img src="img5.jpg"Travel"></div>
+            
+        </div>
+    
+        <div class="floating-buttons">
+            <button class="related-btn" onclick="window.location.href='Destination.html'">RELATED</button>
+            <button class="buy-btn" onclick="window.location.href='Quote.html'">BUY NOW</button>
+        </div>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+            
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                }
+        
+                /* Floating button container */
+                .fab-container {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 10px;
+                    z-index: 1000;
+                    transition: opacity 0.3s ease-in-out;
+                }
+        
+                /* Floating button styles */
+                .fab {
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+                    cursor: pointer;
+                    transition: transform 0.2s ease-in-out;
+                    text-decoration: none;
+                    font-size: 26px;
+                    color: white;
+                }
+        
+                /* Button colors */
+                .whatsapp {
+                    background-color: #25D366;
+                }
+        
+                .call {
+                    background-color: #34B7F1;
+                }
+        
+                .close-btn {
+                    background-color: #8E44AD;
+                }
+        
+                /* Hover effect */
+                .fab:hover {
+                    transform: scale(1.1);
+                }
+        
+                /* Show Button (Hidden Initially) */
+                .show-btn {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                    background-color: #f39c12;
+                    display: none; /* Hidden by default */
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 26px;
+                    color: white;
+                    cursor: pointer;
+                    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+                    transition: transform 0.2s ease-in-out;
+                }
+        
+                .show-btn:hover {
+                    transform: scale(1.1);
+                }
+            </style>
+        
+        
+        <!-- Floating Buttons -->
+        <div class="fab-container" id="fabContainer">
+            <a href="https://wa.me/8076998046" target="_blank" class="fab whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        
+            <a href="tel:918076998046" class="fab call">
+                <i class="fa-solid fa-phone"></i>
+            </a>
+        
+            <div class="fab close-btn" onclick="toggleFAB()">
+                <i class="fa-solid fa-times"></i>
+            </div>
+        </div>
+        
+        <!-- Show Button (Initially Hidden) -->
+        <div class="show-btn" id="showButton" onclick="toggleFAB()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        
+        <script>
+            function toggleFAB() {
+                const fabContainer = document.getElementById('fabContainer');
+                const showButton = document.getElementById('showButton');
+        
+                if (fabContainer.style.display === 'none') {
+                    fabContainer.style.display = 'flex';
+                    showButton.style.display = 'none'; // Hide the show button
+                } else {
+                    fabContainer.style.display = 'none';
+                    showButton.style.display = 'flex'; // Show the button to bring back FABs
+                }
+            }
+        </script>
+        
+    
+<body class="bg-white">
+
+    <div class="px-10 py-16">
+        <div class="border-l-4 border-black pl-4">
+            <h1 class="text-4xl font-semibold">
+                Choose The <span class="font-bold">Destination</span> <br>
+                <span class="font-bold">Just Right</span> For Your <br>
+                Vacation
+            </h1>
+            <p class="text-gray-400 mt-4 max-w-lg">
+                
+            </p>
+        </div>
+    </div>
+    
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #111;
+            }
+            .footer {
+                background: #111;
+                color: white;
+                padding: 40px 0;
+            }
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .footer-column {
+                width: 23%;
+                min-width: 250px;
+            }
+            h2 {
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+            footer p {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #bbb;
+            }
+            .footer-column .contact-info {
+                margin-top: 10px;
+            }
+            .contact-info div {
+                display: flex;
+                align-items: center;
+                margin: 5px 0;
+                font-size: 14px;
+            }
+            .contact-info i {
+                margin-right: 10px;
+                color: yellow;
+            }
+            .latest-posts {
+                display: flex;
+                flex-direction: column;
+            }
+            .latest-posts a {
+                text-decoration: none;
+                color: white;
+                font-size: 14px;
+                margin-top: 8px;
+                display: block;
+            }
+            .latest-posts span {
+                font-size: 12px;
+                color: yellow;
+            }
+            .latest-tweets {
+                color: #888;
+                font-size: 14px;
+            }
+            .footer-column:last-child {
+                text-align: center;
+            }
+        </style>
+ 
+        <style>
+          
+                .travel-section {
+                    display: flex;
+                    width: 100%;
+                }
+                .travel-highlight {
+                    width: 50%;
+                    background: #FFD700;
+                    padding: 50px;
+                    font-family: 'Brush Script MT', cursive;
+                    font-size: 2rem;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    transition: transform 0.5s ease;
+                }
+                .travel-review {
+                    width: 50%;
+                    padding: 50px;
+                    background: white;
+                    transition: transform 0.5s ease;
+                }
+                .travel-highlight span, .travel-review span {
+                    display: block;
+                    transition: transform 0.5s ease;
+                }
+                .travel-section:hover .travel-highlight span {
+                    transform: translateX(-20px);
+                }
+                .travel-section:hover .travel-review span {
+                    transform: translateX(20px);
+                }
+            </style>
+        </head>
+        <body>
+            <div class="travel-section">
+                <div class="travel-highlight">
+                    <span>Explore</span>
+                    <span>Incredible India</span>
+                    <span>with us</span>
+                </div>
+                <div class="travel-review">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span>Discover the beauty, culture, and heritage of India like never before.</span>
+                    <span>By <span style="color: red;">Elegant Tours India</span></span>
+                </div>
+            </div>
+          
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .gallery-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            gap: 15px;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+        .gallery::-webkit-scrollbar {
+            display: none;
+        }
+        .card {
+            position: relative;
+            min-width: 250px;
+            max-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .offer-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: yellow;
+            padding: 5px 10px;
+            font-weight: bold;
+            transform: rotate(-90deg);
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card p {
+            color: red;
+            font-weight: bold;
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: yellow;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: opacity 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            z-index: 1000;
+        }
+        .nav-btn:hover {
+            opacity: 0.8;
+        }
+        .left-btn {
+            left: 10px;
+            visibility: visible;
+        }
+        .right-btn {
+            right: 10px;
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .card {
+                min-width: 100%;
+                height: 300px;
+                
+            }
+            .card img{
+                height: 300px;
+            }
+            .nav-btn {
+                padding: 8px;
+                font-size: 16px;
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+
+<br>
+<br>
+<br>
+
+    <script>
+        function scrollLeft() {
+            document.querySelector('.gallery').scrollBy({ left: -window.innerWidth / 2, behavior: 'smooth' });
+        }
+        function scrollRight() {
+            document.querySelector('.gallery').scrollBy({ left: window.innerWidth / 2, behavior: 'smooth' });
+        }
+    </script>
+
+
+      
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <h2>About Us</h2>
+                <p>
+
+                    GH 14/382, First Floor, Paschim Vihar
+                    New Delhi – 110085
+                    </p>
+                <div class="contact-info">
+                    <div><i>📞</i> 91 8076120531</div>
+                    <div><i>📍</i> GH 14/382, First Floor, Paschim Vihar</div>
+        
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h2>Latest Posts</h2>
+                <div class="latest-posts">
+                    <span>August 30</span>
+                    <a href="#">How To Take Better Photos?</a>
+                    <span>August 30</span>
+                    <a href="#"> Things To See And Do When Visiting Adventure Tours</a>
+                    <span>August 30</span>
+                    <a href="#">Backpacking Laos: A Full Travel Guide for You</a>
+                </div>
+            </div>
+    
+            <div class="footer-column">
+                <h2>Latest Tweets</h2>
+                <p class="latest-tweets">Couldn't connect with Twitter</p>
+            </div>
+    
+            <div class="footer-column">
+                <h2><a href="https://www.facebook.com/people/Elegant-Tours-India/pfbid02MHPAxtLGNWsLQygkSQoCEDQzMnHJu2gWEubgW1aLoiAQQb58j4XUovD8tyu7RLTHl/"></a>Facebook</h2>
+        
+            </div>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
+
+
+

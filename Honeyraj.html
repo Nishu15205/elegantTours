@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajasthan Tour</title>
+    <link rel="stylesheet" href="common.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+       
+   
+</head>
+<body>
+    <body class="bg-white">
+        <header class="flex items-center justify-between p-4 shadow-md bg-white relative">
+            <img src="logo.png" width="180px">
+            <nav>
+                <ul class="flex text-lg hidden flex-col absolute top-16 left-0 w-full bg-white shadow-md p-4 lg:flex lg:flex-row lg:relative lg:top-0 lg:shadow-none lg:p-0" id="menu">
+                    <li><a href="index.html" class="hover:text-yellow-500">Home</a></li>
+                    <li><a href="Destination.html" class="hover:text-yellow-500">Destinations</a></li>
+                    <li><a href="touridea.html" class="hover:text-yellow-500">Tour Ideas</a></li>
+                    <li><a href="tourpackage.html" class="hover:text-yellow-500">Tour Packages</a></li>
+                    <li><a href="destinationwed.html" class="hover:text-yellow-500">Destination Weddings</a></li>
+                    <li><a href="mice.html" class="hover:text-yellow-500">Mice</a></li>
+                    
+                </ul>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <div class="relative z-50">
+    
+                    <input type="text" id="searchBox" placeholder="Search..." 
+                        class="border border-gray-300 rounded-md p-2 w-40 focus:outline-none focus:ring-2 focus:ring-yellow-500" onkeyup="searchSuggestions()">
+                    <button onclick="performSearch()" class="absolute right-2 top-2 text-gray-500">🔍</button>
+                    <div id="suggestions" class="absolute bg-white border border-gray-300 w-40 mt-1 hidden"></div>
+                </div>
+                
+                <button class="text-yellow-500 text-2xl menu-toggle lg:hidden" onclick="toggleMenu()">☰</button>
+            </div>
+        </header>
+    
+        <script>
+            const touristPlaces = ["Rajasthan", "Himachal Pradesh", "Kerala", "Kashmir", "Uttrakhand", "Ladakh"];
+    
+            function performSearch() {
+                let query = document.getElementById('searchBox').value;
+                if (query && touristPlaces.includes(query)) {
+                    window.location.href = `destination.html?place=${encodeURIComponent(query)}`;
+                } else {
+                    alert('Destination not found. Please select from the suggestions.');
+                }
+            }
+    
+            function toggleMenu() {
+                let menu = document.getElementById("menu");
+                menu.classList.toggle("hidden");
+            }
+    
+            function searchSuggestions() {
+                let query = document.getElementById("searchBox").value.toLowerCase();
+                let suggestionsDiv = document.getElementById("suggestions");
+                suggestionsDiv.innerHTML = "";
+                if (query) {
+                    let filteredPlaces = touristPlaces.filter(place => place.toLowerCase().includes(query));
+                    if (filteredPlaces.length) {
+                        filteredPlaces.forEach(place => {
+                            let div = document.createElement("div");
+                            div.classList.add("p-2", "hover:bg-gray-100", "cursor-pointer");
+                            div.innerText = place;
+                            div.onclick = function() {
+                                document.getElementById("searchBox").value = place;
+                                suggestionsDiv.classList.add("hidden");
+                                performSearch();
+                            };
+                            suggestionsDiv.appendChild(div);
+                        });
+                        suggestionsDiv.classList.remove("hidden");
+                    } else {
+                        suggestionsDiv.classList.add("hidden");
+                    }
+                } else {
+                    suggestionsDiv.classList.add("hidden");
+                }
+            }
+        </script>
+        <style>
+            .hero-section {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url("ra3.webp") no-repeat center center/cover ;
+}
+        </style>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        
+        <div class="hero-overlay" >
+            
+            <h1 class="hero-title">Honeymoon Tour of Rajasthan</h1>
+            
+        </div>
+    </div>
+    
+    <!-- Main Section -->
+    <div class="main-section">
+        <!-- Content Section -->
+        <div class="content-section">
+            <h2 class="content-title">Overview</h2>
+            <p class="content-text">Honeymoon Tour of Rajasthan – Rajasthan is another good option for honeymoon in India. It has many luxurious havelis, splendid palaces and forts and luxurious heritage hotels that can enhance the charm of your honeymoon and allow you to spend quality time with your life partner.
+
+                Explore the best of Rajasthan with our 4 Nights & 5 Days Rajasthan Honeymoon Package specially designed for romantic couples looking to ‘live life king size’ option.</p><h3 class="itinerary-title">Itinerary</h3>
+            <ul class="itinerary-list">
+                <li><b>Day 01 Arrive Udaipur - Mount Abu</b></li>
+
+Upon arrival at Udaipur meeet and drive to Mount Abu. On arrival check-in at hotel. Evening visit to Sun Set Point and back to hotel
+<br>overnight at hotel.<br>
+<li><b>Day 02 Mount Abu</b></li>
+
+After breakfast, visit to Nakki Lake and Dilwara Temple.
+<br>
+Nakki Lake: Innumerable attributes are crowned on the head of this intriguing lake. For diehard Abuphills it founts from the centre of the earth! On one hand if it is the largest manmade lake at the height of 11,00 meters in India then on the other hand it is romantically called the love lake of Mount Abu.
+<br>
+Dilwara Temple: The Jain temples, are situated at Dilwara village about 2.5 Kms from the beautiful city of Mount Abu. The temples are carved in marble.
+<li><b>Day 03 Mount Abut - Udaipur</b></li>
+
+After breakfast, full day city tour of Udaipur : visit City Palace, Saheliyon ki Bari and Jagdish Temple. In the evening take a boat ride at Lake Pichola. after visit transfer to your hotel.
+<br>Overnight at hotel.<br>
+<li><b>Day 04 Udaipur</b></li>
+
+After breakfast, visit Udaipur the “City of Lakes” is one among the most romantic and most beautiful city of India. It is a lovely land around the blue water lakes, edge of the lush hills of the Aravalis. A vision in white soaked in romance and beauty, Udaipur city of Rajasthan is a fascinating blend of sights, sounds and experiences – an inspiration for the imagination of the painters, poets and writers. Udaipur’s lakes, gardens, temples and narrow lanes scattered with stalls, carry the flavor of heroic past, epitomizing valor and chivalry.
+<br>overnight at the hotel.<br>
+<li><b>Day 05 Depart Udaipur</b></li>
+
+After Breakfast, transfer to airport to connect flight for onward destination.
+                 </ul>
+            
+            <h3 class="route-map-title">Route Map</h3>
+            <div class="route-map-container">
+                <iframe class="route-map-iframe"  src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d1808163.299253532!2d75.6328759206355!3d27.730592428671297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!3m2!1d28.613929799999998!2d77.2088282!4m5!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!3m2!1d26.9124336!2d75.7872709!4m5!1s0x39740d857c2f41d9%3A0x784aef38a9523b42!2sAgra%2C%20Uttar%20Pradesh!3m2!1d27.1766701!2d78.00807449999999!4m5!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!3m2!1d28.613929799999998!2d77.2088282!5e0!3m2!1sen!2sin!4v1741974189046!5m2!1sen!2sin" ></iframe>  </div>
+            
+            <h3 class="inclusion-title">Inclusions</h3>
+            <ul class="inclusion-list">
+                <li><img class="inclusion-icon" src="https://cdn-icons-png.flaticon.com/128/681/681494.png" alt="Hotel"> Accommodation</li>
+                <li><img class="inclusion-icon" src="https://cdn-icons-png.flaticon.com/128/684/684908.png" alt="Meals"> Meals</li>
+                <li><img class="inclusion-icon" src="https://cdn-icons-png.flaticon.com/128/2011/2011763.png" alt="Transport"> Transport</li>
+                <li><img class="inclusion-icon" src="https://cdn-icons-png.flaticon.com/128/1046/1046857.png" alt="Guide"> Tour Guide</li>
+            </ul>
+        </div>
+        
+        <!-- Form Section -->
+        <div class="form-section">
+            <iframe class="form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLScEz2ld-EfPtquFiQQlkSGeJ1ObXckNGkUwFzNtYUZiSWJHvw/viewform?embedded=true"></iframe> 
+            <button class="request-quote-btn">Request a Quote</button>
+            <br>
+            <br>
+            <br>
+            <div class="more-packages">
+                <h1 class="more-packages-title" style="font-size: larger;"><b>More Package Tours</b></h1>
+                <ul class="package-list">
+                    <br>
+                    <li><a href="rajasthan.html"><img src="ra.jpg">Golden Triangle Tour</a></li>
+                    <li><a href="royalrajasthan.html"><img src="ra11.jpg">Royal Rajasthan Tour</a></li>
+                    <li><a href="heriraj.html"><img src="ra12.jpg">Heritage Tour Rajasthan</a></li>
+                    <li><a href="goldenTiger.html"><img src="ra13.jpg">Golden Triangle with Tiger</a></li>
+                    <li><a href="Honeyraj.html"><img src="ra14.jpg" style="width: 100%;">Honeymoon Tour of Rajasthan</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- More Packages Section -->
+    
+
+    <!-- Image Collage Section -->
+    <div class="image-collage-section">
+        <h2 class="collage-title">Memorable Moments</h2>
+        <div class="collage-grid" style="height: 200px;">
+            <img class="collage-image" src="ra1.jpg" alt="Fort" style="height: 200px;">
+            <img class="collage-image" src="ra2.jpg" alt="Desert" style="height: 200px;">
+            <img class="collage-image" src="ra3.webp" alt="Palace" style="height: 200px;">
+        </div>
+    </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Floating button container */
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+        }
+    
+        /* Floating button styles */
+        .fab {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            text-decoration: none;
+            font-size: 26px;
+            color: white;
+        }
+    
+        /* Button colors */
+        .whatsapp {
+            background-color: #25D366;
+        }
+    
+        .call {
+            background-color: #34B7F1;
+        }
+    
+        .close-btn {
+            background-color: #8E44AD;
+        }
+    
+        /* Hover effect */
+        .fab:hover {
+            transform: scale(1.1);
+        }
+    
+        /* Show Button (Hidden Initially) */
+        .show-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: #f39c12;
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease-in-out;
+        }
+    
+        .show-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    </head>
+    <body>
+    
+    <!-- Floating Buttons -->
+    <div class="fab-container" id="fabContainer">
+    <a href="https://wa.me/8076998046" target="_blank" class="fab whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <a href="tel:918076998046" class="fab call">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    
+    <div class="fab close-btn" onclick="toggleFAB()">
+        <i class="fa-solid fa-times"></i>
+    </div>
+    </div>
+    
+    <!-- Show Button (Initially Hidden) -->
+    <div class="show-btn" id="showButton" onclick="toggleFAB()">
+    <i class="fa-solid fa-bars"></i>
+    </div>
+    
+    <script>
+    function toggleFAB() {
+        const fabContainer = document.getElementById('fabContainer');
+        const showButton = document.getElementById('showButton');
+    
+        if (fabContainer.style.display === 'none') {
+            fabContainer.style.display = 'flex';
+            showButton.style.display = 'none'; // Hide the show button
+        } else {
+            fabContainer.style.display = 'none';
+            showButton.style.display = 'flex'; // Show the button to bring back FABs
+        }
+    }
+    </script>
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+        }
+        .footer {
+            background: #111;
+            color: white;
+            padding: 40px 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            width: 23%;
+            min-width: 250px;
+        }
+        h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        footer p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #bbb;
+        }
+        .footer-column .contact-info {
+            margin-top: 10px;
+        }
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            color: yellow;
+        }
+        .latest-posts {
+            display: flex;
+            flex-direction: column;
+        }
+        .latest-posts a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            margin-top: 8px;
+            display: block;
+        }
+        .latest-posts span {
+            font-size: 12px;
+            color: yellow;
+        }
+        .latest-tweets {
+            color: #888;
+            font-size: 14px;
+        }
+        .footer-column:last-child {
+            text-align: center;
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+            
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Floating button container */
+    .fab-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Floating button styles */
+    .fab {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+        text-decoration: none;
+        font-size: 26px;
+        color: white;
+    }
+
+    /* Button colors */
+    .whatsapp {
+        background-color: #25D366;
+    }
+
+    .call {
+        background-color: #34B7F1;
+    }
+
+    .close-btn {
+        background-color: #8E44AD;
+    }
+
+    /* Hover effect */
+    .fab:hover {
+        transform: scale(1.1);
+    }
+
+    /* Show Button (Hidden Initially) */
+    .show-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        background-color: #f39c12;
+        display: none; /* Hidden by default */
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        color: white;
+        cursor: pointer;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .show-btn:hover {
+        transform: scale(1.1);
+    }
+</style>
+</head>
+<body>
+
+<!-- Floating Buttons -->
+<div class="fab-container" id="fabContainer">
+<a href="https://wa.me/8076998046" target="_blank" class="fab whatsapp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a href="tel:918076998046" class="fab call">
+    <i class="fa-solid fa-phone"></i>
+</a>
+
+<div class="fab close-btn" onclick="toggleFAB()">
+    <i class="fa-solid fa-times"></i>
+</div>
+</div>
+
+<!-- Show Button (Initially Hidden) -->
+<div class="show-btn" id="showButton" onclick="toggleFAB()">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+<script>
+function toggleFAB() {
+    const fabContainer = document.getElementById('fabContainer');
+    const showButton = document.getElementById('showButton');
+
+    if (fabContainer.style.display === 'none') {
+        fabContainer.style.display = 'flex';
+        showButton.style.display = 'none'; // Hide the show button
+    } else {
+        fabContainer.style.display = 'none';
+        showButton.style.display = 'flex'; // Show the button to bring back FABs
+    }
+}
+</script>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-column">
+            <h2>About Us</h2>
+            <p>
+
+                GH 14/382, First Floor, Paschim Vihar
+                New Delhi – 110085
+                </p>
+            <div class="contact-info">
+                <div><i>📞</i> 91 8076120531</div>
+                <div><i>📍</i> GH 14/382, First Floor, Paschim Vihar</div>
+    
+            </div>
+        </div>
+        
+        <div class="footer-column">
+            <h2>Latest Posts</h2>
+            <div class="latest-posts">
+                <span>August 30</span>
+                <a href="#">How To Take Better Photos?</a>
+                <span>August 30</span>
+                <a href="#"> Things To See And Do When Visiting Adventure Tours</a>
+                <span>August 30</span>
+                <a href="#">Backpacking Laos: A Full Travel Guide for You</a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h2>Latest Tweets</h2>
+            <p class="latest-tweets">Couldn't connect with Twitter</p>
+        </div>
+
+        <div class="footer-column">
+            <h2><a href="https://www.facebook.com/people/Elegant-Tours-India/pfbid02MHPAxtLGNWsLQygkSQoCEDQzMnHJu2gWEubgW1aLoiAQQb58j4XUovD8tyu7RLTHl/"></a>Facebook</h2>
+    
+        </div>
+    </div>
+</footer>
+</body>
+</html>
