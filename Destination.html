@@ -6,6 +6,25 @@
     <title>Travel Header</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        <style>@media (max-width: 768px) {
+    header img {
+            width: 100px; /* Adjust as needed */
+        }
+
+        nav ul.show {
+            display: flex;
+        }
+
+        .menu-toggle {
+            display: block;
+            font-size: 24px;
+        }
+
+        /* Hide search box on small screens */
+        .search-container {
+            display: none;
+        }
+    }</style>
         @media (min-width: 1025px) and (max-width: 1280px) {
             nav ul {
                 gap: 15px;
